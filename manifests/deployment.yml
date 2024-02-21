@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: dianmzazureexampleproject 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dianmzazureexampleproject
+  template:
+    metadata:
+      labels:
+        app: dianmzazureexampleproject 
+    spec:
+      containers:
+        - name: dianmzazureexampleproject 
+          image: myappexcontainerregistry.azurecr.io/dianmzazureexampleproject
+          ports:
+          - containerPort: 8080
