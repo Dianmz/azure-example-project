@@ -1,0 +1,62 @@
+name : CICD-AzExampleProjecy
+trigger:
+  branches:
+    include:
+      - main
+
+variables:
+  dockerRegistryServiceConnection: '010b0f90-7e4f-4c8a-9027-81f00fc4f5f7'
+  imageRepository: 'dianmzazureexampleproject'
+  containerRegistry: 'myappexcontainerregistry.azurecr.io'
+  dockerfilePath: '**/Dockerfile'
+  tag: '$(Build.BuildId)'
+  imagePullSecret: 'myappexcontainerregistryd96d-auth'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build and push Docker image
+    steps:
+
+    - task: Docker@2
+      displayName: Login to Azure Container Registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+    - upload: manifests
+      artifact: manifests
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  - job: Deploy
+    displayName: Deploying Stage
+    environment: 'Dianmzazureexampleproject.default'
+    steps:
+    - task: Kubernetes@1
+      displayName: Kubectl Apply ok AKS
+      inputs:
+        action: deploy
+        manifests: |
+          $(Pipeline.Workspace)/manifests/deployment.yml
+          $(Pipeline.Workspace)/manifests/service.yml
+        containers: |
+          $(containerRegistry)/$(imageRepository):$(tag)
+
+    - task: Kubernetes@1
+      displayName: Kubectl Apply Using Arguments for DR
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: KunernetesConnectionDialRoid
+        command: apply
+        arguments: -f deployment.yml

@@ -6,12 +6,12 @@
 
 Los despliegues automatizados se refieren al proceso de implementación de software de forma automática y sistemática, sin intervención manual significativa. Estos despliegues automatizados son esenciales en el desarrollo de software moderno por varias razones:
 
-- [x] Rapidez y Eficiencia
-- [x] Consistencia
-- [x] Reducción de Errores
-- [x] Escalabilidad
-- [x] Facilita la Integración Continua y la Entrega Continua (CI/CD)
-- [x] Mejora la Colaboración
+- Rapidez y Eficiencia
+- Consistencia
+- Reducción de Errores
+- Escalabilidad
+- Facilita la Integración Continua y la Entrega Continua (CI/CD)
+- Mejora la Colaboración
 
 En resumen, los despliegues automatizados son esenciales para acelerar el ciclo de vida del desarrollo de software, mejorar la calidad del software y permitir a las organizaciones adaptarse rápidamente a las demandas del mercado.
 
@@ -31,13 +31,12 @@ La implementación y gestión de aplicaciones en la nube presentan una serie de 
 
 [Azure DevOps](https://azure.microsoft.com/es-es/products/devops) es una plataforma integral de desarrollo de software proporcionada por Microsoft que ofrece un conjunto de herramientas y servicios para planificar, desarrollar, probar y desplegar aplicaciones de manera eficiente. Anteriormente conocida como Visual Studio Team Services (VSTS), Azure DevOps consta de varios componentes principales que se integran de manera fluida para respaldar el ciclo de vida completo del desarrollo de software. Estos componentes incluyen:
 
-- [x] Azure Boards
-- [x] Azure Repos
-- [x] Azure Pipelines
-- [x] Azure Test Plans
-- [x] Azure Artifacts
-- [x] Azure DevOps Analytics
-
+- Azure Boards
+- Azure Repos
+- Azure Pipelines
+- Azure Test Plans
+- Azure Artifacts
+- Azure DevOps Analytics
 
 ### Kubernetes
 
@@ -53,9 +52,9 @@ Integrar Azure DevOps con Kubernetes permite automatizar el proceso de implement
 
 #### Requisitos
 
-- [x] Una cuenta de Azure con una suscripción activa.
-- [x] Una conexión del servicio Azure Resource Manager.
-- [x] Una cuenta de GitHub
+- Una cuenta de Azure con una suscripción activa.
+- Una conexión del servicio Azure Resource Manager.
+- Una cuenta de GitHub
 
 #### Configuración de un clúster de Kubernetes en Azure
 
@@ -91,7 +90,7 @@ az aks create \
 
 Este proceso realizará lo siguiente:
 
-- Crear una conexión de servicio del registro de Docker para permitir que el pipelinen pueda insertar imágenes en el registro de contenedor.
+- Crear una conexión de servicio del registro de Docker para permitir que el pipeline pueda insertar imágenes en el registro de contenedor.
 
 - Creará un entorno y un recurso de Kubernetes dentro.
 
