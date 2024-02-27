@@ -11,6 +11,7 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: $(dockerRegistryServiceConnection)
   imageRepository: 'dianmzazureexampleproject'
   containerRegistry: 'myappexcontainerregistry.azurecr.io'
   dockerfilePath: '**/Dockerfile'
