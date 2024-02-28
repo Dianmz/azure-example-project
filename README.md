@@ -103,3 +103,8 @@ Este proceso realizará lo siguiente:
 Este código de ejemplo utiliza el Framework Web de Node.js Express para crear un servidor web básico que recube peticiones HTTP en el puerto 8080.
 
 Éste proyecto incluye un Dockerfile en `app/Dockerfile`, en el cuál se definen los pasos para construir la imagen que permitirá al contenedor de Node.js correr. También se incluye el manifiesto de despliegue `deployment.yml` y su correspondiente `service.yml`. `deployment.yml` Describe como hacer el deploy de una aplicación Node.JS contenelizada hacia un clúster de Kubernetes. `service.yml` crea un servicio y un secret resource.
+
+
+## Presentación
+
+[Presentación](https://docs.google.com/presentation/d/1EiNQRqnHPBdwD4ssTLVBaO7Q1qDy3NvOD2ilG0IBnj4/edit?usp=sharing)
